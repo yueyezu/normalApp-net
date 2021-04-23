@@ -1,0 +1,123 @@
+body {
+    background: #f5f5f5;
+    margin: 0;
+}
+
+.login-header {
+    margin: 30px auto 0 auto;
+    text-align: center;
+}
+
+.login-body {
+    margin: 0px 5px;
+    position: relative;
+    background: url(img/background.jpg) center no-repeat;
+}
+
+.login-pnl {
+    position: absolute;
+    top: 22%;
+    right: 10%;
+    width: 390px;
+    height: 352px;
+    background: url(img/loginpanel.png) center no-repeat;
+}
+
+#loginForm {
+    width: 250px;
+    margin: 50px auto 30px auto;
+    overflow: hidden;
+}
+
+    #loginForm > div {
+        width: 240px;
+        line-height: 36px;
+        height: 36px;
+        overflow: hidden;
+        border-radius: 4px;
+        -ms-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        -o-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border: 1px solid #65baff;
+        margin-bottom: 24px;
+    }
+
+    #loginForm input, #loginForm img {
+        width: 200px;
+        height: 36px;
+    }
+
+    #loginForm input {
+        border: none;
+        padding: 0;
+        float: left;
+        outline: none;
+    }
+
+    #loginForm i {
+        width: 20px;
+        height: 20px;
+        float: left;
+        margin: 7px;
+    }
+
+    #loginForm #verifyCode {
+        padding: 0;
+        float: left;
+        height: 34px;
+        border-radius: 4px;
+        -ms-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        -o-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border: 1px solid #65baff;
+    }
+
+    #loginForm #verifyCodeImg {
+        height: 34px;
+        float: right;
+        border-radius: 4px;
+        -ms-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        -o-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border: 1px solid #65baff;
+    }
+
+#verifyCodeImg:hover {
+    cursor: pointer;
+}
+
+#btnLogin {
+    display: inline-block;
+    height: 36px;
+    line-height: 36px;
+    width: 250px;
+    border-radius: 4px;
+    -ms-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -o-border-radius: 4px;
+    -moz-border-radius: 4px;
+    background: #faa600;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    font-family: "微软雅黑";
+    text-align: center;
+}
+
+    #btnLogin:hover {
+        cursor: pointer;
+    }
+
+.login-foot {
+    margin-top: 50px;
+    text-align: center;
+}
+
+#btnforgetPwd {
+    cursor: pointer;
+    font-size: 14px;
+    color: #666;
+}

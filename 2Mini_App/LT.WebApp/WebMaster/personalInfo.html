@@ -1,0 +1,104 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>个人信息</title>
+    <!-- jquery -->
+    <script src="../Resources/js/jquery/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <!-- easyUI -->
+    <link href="../Resources/js/easyui/themes/icon.css" rel="stylesheet" type="text/css"/>
+    <link href="../Resources/js/easyui/themes/default/easyui.css" rel="stylesheet" type="text/css"/>
+    <link href="../Resources/css/easyuiExt.css" rel="stylesheet" type="text/css"/>
+    <script src="../Resources/js/easyui/jquery.easyui.min.js" type="text/javascript"></script>
+    <script src="../Resources/js/easyui/locale/easyui-lang-zh_CN.js" type="text/javascript"></script>
+    <!-- commonjs -->
+    <link href="../Resources/css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="../Resources/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <script src="../Resources/js/custom/common.js" type="text/javascript"></script>
+    <style type="text/css">
+        </style>
+</head>
+<body style="margin:0;">
+    <form id="personalInfoForm" class="formCls">
+        <table>
+            <tr>
+                <th class="formTitle" style="width: 80px;">用&nbsp;户&nbsp;名：</th>
+                <td class="formValue">
+                    <input id="userName" name="userName" type="text" class="easyui-validatebox" data-options="required:true" />
+                </td>
+                <th class="formTitle">生&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日：</th>
+                <td class="formValue">
+                    <input id="birthday" name="birthday" type="text" class="easyui-datebox" />
+                </td>
+            </tr>
+            <tr>
+                <th class="formTitle">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</th>
+                <td class="formValue">
+                    <label for='sex_man'>
+                        <input type="radio" id="sex_man" name="sex" value="1" checked="checked" />男
+                    </label>
+                    <label for='sex_woman'>
+                        <input type="radio" id="sex_woman" name="sex" value="0" />女
+                    </label>
+                </td>
+                <th class="formTitle">微&nbsp;信&nbsp;号：</th>
+                <td class="formValue">
+                    <input id="weChat" name="weChat" type="text" class="easyui-textbox" />
+                </td>
+            </tr>
+            <tr>
+                <th class="formTitle">电&nbsp;话&nbsp;号：</th>
+                <td class="formValue">
+                    <input id="mobile" name="mobile" type="text" class="easyui-validatebox" data-options="validType:['mobile']" />
+                </td>
+                <th class="formTitle">电子邮件：</th>
+                <td class="formValue">
+                    <input id="email" name="email" type="text" class="easyui-validatebox" data-options="validType:['email']" />
+                </td>
+            </tr>
+
+        </table>
+    </form>
+    <div class="btnsPanel">
+        <a id="btnSubmit" class="easyui-linkbutton btn-orange" data-options="iconCls:'icon-submit'">提交</a>
+        <a id="btnCancel" class="easyui-linkbutton lastBtn" data-options="iconCls:'icon-close-window'">关闭</a>
+    </div>
+
+    <script type="text/javascript">
+        $(function () {
+            var winParam = requestParam();  //获取url传过来的值，必须有：wintype,winid字段
+            //提交按钮的操作
+            $('#btnSubmit').click(function () {
+                var isValid = $('#personalInfoForm').form('validate');
+                if (!isValid) {
+                    alertWarnning('录入数据有误，请检查');
+                    return;
+                }
+                doAjax({
+                    url: 'Ashx/SysManager/Menu.ashx',
+                    action: "personalInfo",
+                    data: {
+                        'userName': $("#userName").val(),
+                        'birthday': $("#birthday").val(),
+                        'sex': $("input[name=sex]:checked").val(),
+                        'weChat': $("#weChat").val(),
+                        'mobile': $("#mobile").val(),
+                        'email': $("#email").val()
+                    },
+                    success: function (e) {
+                        alertSuccess('信息修改成功！', function () {
+                            closeWindow();
+
+                        });
+                    }
+                });
+            });
+
+            //取消按钮的操作
+            $('#btnCancel').click(function () {
+                closeWindow(winParam.winid);
+            });
+        });
+    </script>
+</body>
+</html>

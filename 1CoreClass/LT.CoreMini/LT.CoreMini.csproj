@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D1283FDC-6F47-4AD8-97ED-F6067C81438D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LT.Core</RootNamespace>
+    <AssemblyName>LT.Core</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>fd56d6be</NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\2Mini_App\packages\ltcore\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper, Version=1.40.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\2Mini_App\packages\Dapper.1.42\lib\net35\Dapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.7.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\..\2Mini_App\packages\MySql.Data.6.7.9\lib\net20\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Data.SQLite, Version=1.0.109.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\..\2Mini_App\packages\System.Data.SQLite.Core.1.0.109.1\lib\net20\System.Data.SQLite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseBLL\FormBll.cs" />
+    <Compile Include="BaseBLL\IBaseBll.cs" />
+    <Compile Include="BaseBLL\TreeBll.cs" />
+    <Compile Include="BaseDAL\Dapper\DapperFactory.cs" />
+    <Compile Include="BaseDAL\Dapper\DapperHelper.cs" />
+    <Compile Include="BaseDAL\Database\DbFactory.cs" />
+    <Compile Include="BaseDAL\Database\MySqlHelper.cs" />
+    <Compile Include="BaseDAL\Database\OracleHelper.cs" />
+    <Compile Include="BaseDAL\Database\SqliteHelper.cs" />
+    <Compile Include="BaseDAL\FormDal.cs" />
+    <Compile Include="BaseDAL\TreeDal.cs" />
+    <Compile Include="BaseEntity\BaseTreeEntity.cs" />
+    <Compile Include="BaseWeb\BaseAshx.cs" />
+    <Compile Include="BaseWeb\BaseAspxPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BaseWeb\FormAshx.cs" />
+    <Compile Include="BaseWeb\TreeAshx.cs" />
+    <Compile Include="CommonAttribute\CheckLoginAttribute.cs" />
+    <Compile Include="CommonAttribute\FuncMsgAttribute.cs" />
+    <Compile Include="CommonEntity\AjaxResult.cs" />
+    <Compile Include="BaseBLL\BaseBll.cs" />
+    <Compile Include="CommonEntity\ComboSelectModel.cs" />
+    <Compile Include="CommonEntity\JsonRpcResult.cs" />
+    <Compile Include="BaseDAL\Database\IDbHelper.cs" />
+    <Compile Include="BaseDAL\Database\MSSQLHelper.cs" />
+    <Compile Include="LtCore.cs" />
+    <Compile Include="CusException\CustomException.cs" />
+    <Compile Include="BaseDAL\BaseDal.cs" />
+    <Compile Include="BaseDAL\IBaseDal.cs" />
+    <Compile Include="BaseEntity\ICreateAuth.cs" />
+    <Compile Include="BaseEntity\IDeleteAuth.cs" />
+    <Compile Include="BaseEntity\BaseEntity.cs" />
+    <Compile Include="BaseEntity\IModifyAuth.cs" />
+    <Compile Include="Operator\SysLog\BaseSysLogModel.cs" />
+    <Compile Include="Operator\SysLog\ISysLog.cs" />
+    <Compile Include="Operator\Licence\Licence.cs" />
+    <Compile Include="Operator\Licence\LicenceModel.cs" />
+    <Compile Include="Operator\Operator\OperatorModel.cs" />
+    <Compile Include="Operator\Operator\OperatorProvider.cs" />
+    <Compile Include="CommonEntity\Pagination.cs" />
+    <Compile Include="Operator\SysLog\SysLogProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LT.Code\LT.Code.csproj">
+      <Project>{50c7ad6c-5235-4227-b675-39239c5508ea}</Project>
+      <Name>LT.Code</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\..\2Mini_App\packages\System.Data.SQLite.Core.1.0.109.1\build\net20\System.Data.SQLite.Core.targets" Condition="Exists('..\..\2Mini_App\packages\System.Data.SQLite.Core.1.0.109.1\build\net20\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。启用“NuGet 程序包还原”可下载这些程序包。有关详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\2Mini_App\packages\System.Data.SQLite.Core.1.0.109.1\build\net20\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\2Mini_App\packages\System.Data.SQLite.Core.1.0.109.1\build\net20\System.Data.SQLite.Core.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

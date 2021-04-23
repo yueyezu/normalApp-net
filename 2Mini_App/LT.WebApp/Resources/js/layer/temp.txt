@@ -1,0 +1,135 @@
+﻿// 调用layer时封装的内容，这里在使用时，可以直接复制到commonjs中。
+// 不要忘记对layer进行引用。
+
+/********************** JSsection start *************************
+*  layer弹出层的使用封装
+*  Dependent on layer-v3.1.0 Web弹层组件
+*/
+
+/*  函数名：弹出窗口
+*   参数：option，弹出窗口的配置信息，具体的配置内容参考layer弹出层的API文档
+*/
+function layerOpen(options) {
+    var defaults = {
+        id: null,
+        title: '系统窗口',
+        width: "100px",
+        height: "100px",
+        url: '',
+        shade: 0.3,
+        maxmin: false,
+        btn: ['确认', '关闭'],
+        //btnclass: ['btn btn-primary', 'btn btn-danger'],
+        callBack: null
+    };
+    options = $.extend(defaults, options);
+    var _width = top.$(top).width() > parseInt(options.width.replace('px', '')) ? options.width : top.$(top).width() + 'px';
+    var _height = top.$(top).height() > parseInt(options.height.replace('px', '')) ? options.height : top.$(top).height() + 'px';
+    var winIndex = top.layer.open({
+        id: options.id,
+        type: 2,
+        shade: options.shade,
+        title: options.title,
+        fix: false,
+        area: [_width, _height],
+        content: options.url,
+        btn: options.btn,
+        btnclass: options.btnclass,
+        maxmin: options.maxmin,
+        yes: function () {
+            options.callBack(options.id, winIndex);
+        }, cancel: function () {
+            return true;
+        }
+    });
+
+    return winIndex;
+}
+function layerOpenNoBtn(options) {
+    var defaults = {
+        title: '系统窗口',
+        moveOut: false,
+        fix: false,
+        shade: 0, //不需要遮罩
+        maxmin: true //显示最小化按钮
+    };
+    $.extend(defaults, options, {
+        content: options.url,
+        area: [options.width, options.height],
+        type: 2
+    });
+
+    var winIndex = top.layer.open(defaults);
+    return winIndex;
+}
+function layerConfirm(content, callBack) {
+    var winIndex = top.layer.confirm(content, {
+        icon: "fa-exclamation-circle",
+        title: "系统提示",
+        btn: ['确认', '取消'],
+        btnclass: ['btn btn-primary', 'btn btn-danger']
+    }, function () {
+        callBack(true, winIndex);
+    }, function () {
+        callBack(false, winIndex);
+    });
+
+    return winIndex;
+}
+function layerAlert(content, type) {
+    var icon = "";
+    if (type == 'info') {
+        icon = "fa-exclamation-circle";
+    }
+    if (type == 'success') {
+        icon = "fa-check-circle";
+    }
+    if (type == 'error') {
+        icon = "fa-times-circle";
+    }
+    if (type == 'warning') {
+        icon = "fa-exclamation-circle";
+    }
+    var winId = top.layer.alert(content, {
+        icon: icon,
+        title: "系统提示",
+        btn: ['确认'],
+        //btnclass: ['btn btn-primary']
+    });
+    return winId;
+}
+function layerMsg(content, type) {
+    if (type != undefined) {
+        var icon = "";
+        if (type == 'success') {
+            icon = "fa-check-circle";
+        }
+        if (type == 'error') {
+            icon = "fa-times-circle";
+        }
+        if (type == 'warning') {
+            icon = "fa-exclamation-circle";
+        }
+        top.layer.msg(content, { icon: icon, time: 4000, shift: 5 });
+        top.$(".layui-layer-msg").find('i.' + icon).parents('.layui-layer-msg').addClass('layui-layer-msg-' + type);
+    } else {
+        top.layer.msg(content);
+    }
+}
+function layerAllClose() {
+    var index = top.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+    var $IsdialogClose = top.$("#layui-layer" + index).find('.layui-layer-btn').find("#IsdialogClose");
+    var IsClose = $IsdialogClose.is(":checked");
+    if ($IsdialogClose.length == 0) {
+        IsClose = true;
+    }
+    if (IsClose) {
+        top.layer.close(index);
+    } else {
+        location.reload();
+    }
+}
+function layerCloseByIndex(index) {
+    top.layer.close(index);
+}
+

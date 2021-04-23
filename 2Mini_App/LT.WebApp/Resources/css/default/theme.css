@@ -1,0 +1,49 @@
+﻿/****主题样式****/
+.accordion .accordion-header-selected {
+    background: #e7eaec !important;
+    border-bottom-color: #ddd;
+    border-left: 3px solid #7bbfea !important;
+}
+
+.accordion .accordion-header:hover {
+    background: #e7eaec;
+    border-left: 3px solid #7bbfea;
+}
+
+.tabs li.tabs-selected a.tabs-inner {
+    border-top-color: #7bbfea !important;
+}
+
+.window {
+    border-color: #5AC4FF !important;
+}
+
+    .window .window-header {
+        background: #f5f5f5!important;
+    }
+
+
+/*********** 头部的样式 **************/
+.lt-header {
+    height: 50px !important;
+    background: #7bbfea !important;
+}
+
+ul.lt-header-menu {
+    margin: 0;
+}
+
+    ul.lt-header-menu > li {
+        float: right;
+        list-style: none;
+        min-width: 74px;
+    }
+
+        ul.lt-header-menu > li a {
+            line-height: 18px;
+            text-align: left;
+        }
+.lt-header-menu .l-btn:hover {
+    opacity:1;
+    filter: alpha(opacity=100);
+}

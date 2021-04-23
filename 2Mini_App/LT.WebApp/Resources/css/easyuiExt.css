@@ -1,0 +1,406 @@
+﻿/**
+ *  EasyUI 样式扩展
+ **/
+
+/***** tab样式扩展 *****/
+.tabs-header,
+.tabs-scroller-left,
+.tabs-scroller-right,
+.tabs-tool,
+.tabs,
+.tabs-panels,
+.tabs li a.tabs-inner,
+.tabs li.tabs-selected a.tabs-inner,
+.tabs-header-bottom .tabs li.tabs-selected a.tabs-inner,
+.tabs-header-left .tabs li.tabs-selected a.tabs-inner,
+.tabs-header-right .tabs li.tabs-selected a.tabs-inner {
+    border-color: #D3D3D3;
+}
+
+    .tabs-header .tabs li a.tabs-inner {
+        background: #f3f3f3;
+        height: 28px;
+        padding-top: 1px;
+        line-height: 28px;
+        filter: none;
+    }
+
+        .tabs-header .tabs li a.tabs-inner:hover {
+            background: #e1e1e1;
+            filter: none;
+        }
+
+    .tabs-header .tabs li a.tabs-close {
+        background: url(default/img/tab_close.png) center no-repeat;
+    }
+
+    .tabs-header .tabs li a:hover.tabs-close {
+        background-color: #e2e2e2;
+    }
+
+    .tabs-header .tabs li.tabs-selected a.tabs-inner {
+        padding-top: 0px;
+        border-top-width: 3px;
+        border-top-color: #7bbfea;
+        border-bottom-width: 0;
+        background: #fff !important;
+    }
+
+    .tabs-header .tabs-tool .l-btn {
+        padding: 0px;
+    }
+
+
+
+/***** panel样式扩展 *****/
+.panel-header {
+    border-color: #D3D3D3;
+    filter: none;
+}
+
+.panel-icon {
+    left: 8px;
+}
+
+.panel-title {
+    line-height: 31px;
+    padding-left: 8px;
+    color: #333;
+    height: 24px;
+    line-height: 24px;
+}
+
+.panel-tool a:hover {
+    background-color: #e2e2e2;
+}
+
+.panel-tool-close {
+    background: url(default/img/closeBtn.png) center no-repeat;
+}
+
+.panel-body {
+    border-color: #D3D3D3;
+    border-left-width: 0 !important;
+}
+
+.panel-body-noheader {
+    background-color: #fff;
+    border-top-width: 0;
+    border-right-width: 0;
+}
+
+/***** window样式扩展 *****/
+
+.window {
+    padding: 0;
+    box-shadow: 1px 1px 50px rgba(0,0,0,.3);
+    border-width: 3px 0px 0px 0px;
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -o-border-radius: 6px;
+}
+
+    .window .window-body {
+        border: none;
+        background: #fff;
+    }
+
+    .window .window-header {
+        padding: 3px 0;
+    }
+
+        .window .window-header .panel-tool {
+            right: 8px;
+            top: 50%;
+            margin-top: -8px;
+        }
+
+
+/***** accordion样式扩展 *****/
+.accordion {
+    background: #F9FAFC;
+    border: none;
+}
+
+    .accordion .accordion-header {
+        background: #F9FAFC;
+        height: 24px;
+        border-left: 3px solid #F9FAFC;
+    }
+
+        .accordion .accordion-header .panel-with-icon {
+            padding-left: 24px;
+            line-height: 24px;
+        }
+
+        .accordion .accordion-header .accordion-collapse {
+            background: url(default/img/layout_arrows.png) no-repeat -16px -16px;
+        }
+
+        .accordion .accordion-header .accordion-expand {
+            background: url(default/img/layout_arrows.png) no-repeat -16px 0;
+        }
+
+/***** tree样式扩展 *****/
+.tree-node {
+    padding: 3px 0px;
+}
+
+.tree-node-hover {
+    background: #e7eaec;
+}
+
+.tree-node-selected {
+    background: #e7eaec;
+}
+
+.tree-node .tree-file {
+    background: url(default/img/file.png) center no-repeat;
+}
+
+.tree-node .tree-folder {
+    background: url(default/img/folder.png) center no-repeat;
+}
+
+.tree-node .tree-folder-open {
+    background: url(default/img/folder_open.png) center no-repeat;
+}
+
+
+/***** messager提示框样式扩展 *****/
+.messager-window .messager-question {
+    background: url(default/img/question_mark.png) center no-repeat;
+}
+
+.messager-window .messager-info {
+    background: url(default/img/success_mark.png) center no-repeat;
+}
+
+.messager-window .messager-error {
+    background: url(default/img/error_mark.png) center no-repeat;
+}
+
+.messager-window .messager-warning {
+    background: url(default/img/warining_mark.png) center no-repeat;
+}
+
+.messager-window .messager-button > a + a {
+    background: #5AC4FF !important;
+}
+
+.messager-window .messager-button > a:first-child {
+    background: #ffb86c !important;
+    border-color: #ffb86c;
+}
+.messager-window .messager-button {
+    border-color: #F4F4F4;
+}
+
+/***** button样式扩展 *****/
+.l-btn {
+    filter: none;
+}
+
+    .l-btn:hover {
+        opacity: 0.7;
+        filter: alpha(opacity=70);
+    }
+
+.l-btn-text {
+    color: #fff;
+    line-height: 22px;
+}
+
+.l-btn-left .m-btn-downarrow, .l-btn-left .s-btn-downarrow {
+    background: url(default/img/menu_arrows.png) center no-repeat;
+}
+
+.easyui-linkbutton:hover {
+    background: #d5d5d5;
+    border-color: #d5d5d5;
+}
+
+.easyui-linkbutton .l-btn-text {
+    color: #3c3c3c;
+}
+
+
+
+/***** combo样式扩展 *****/
+.combo-arrow {
+    background-color: #f3f3f3;
+    background: url(default/img/down_arrow.png) center no-repeat;
+}
+
+    .combo-arrow:hover {
+        background-color: #e2e2e2;
+    }
+
+.combo-panel {
+    border: 1px solid #d3d3d3 !important;
+}
+
+
+/***** layout样式扩展 *****/
+.layout-expand-west, .layout-expand-west:hover {
+    background: #e7eaec;
+}
+
+.layout-button-right {
+    background: url(default/img/layout_arrows.png) no-repeat 0 -16px;
+}
+
+
+
+/***** form样式扩展 *****/
+.easyui-validatebox {
+    border-width: 1px;
+    border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    height: 22px;
+    padding: 0;
+}
+
+.textbox {
+    border: 1px solid #d3d3d3;
+    height: 22px;
+}
+
+
+/***** tabs样式扩展 *****/
+.tabs-header {
+    border-width: 0px;
+    background: #f3f3f3;
+}
+
+    .tabs-header .tabs {
+        height: 30px;
+        padding: 0;
+    }
+
+    .tabs-header .tabs-wrap {
+        padding-top: 2px;
+    }
+
+    .tabs-header .tabs .tabs-title {
+        line-height: 24px;
+    }
+
+    .tabs-header .tabs-tool {
+        background: #f3f3f3;
+        padding: 1px 4px !important;
+        border-top-width: 0px;
+    }
+
+        .tabs-header .tabs-tool .l-btn-plain {
+            background: transparent;
+            border: none;
+        }
+
+            .tabs-header .tabs-tool .l-btn-plain:hover {
+                background: #e2e2e2 !important;
+                border: none;
+            }
+
+.tabs-panels {
+    border-bottom-width: 0;
+    border-right-width: 0;
+}
+
+
+/****** menubutton样式扩展 ******/
+.easyui-menubutton:hover {
+    color: #fff;
+}
+
+.easyui-menubutton .m-btn-downarrow {
+    right: 2px;
+}
+
+/****** datagrid样式扩展 ******/
+.datagrid .datagrid-toolbar {
+    padding: 6px 0 6px 28px;
+    background: #f7f7f7;
+}
+
+.datagrid .datagrid-header .datagrid-header-row .datagrid-cell {
+    text-align: center;
+}
+
+.datagrid-header, .datagrid-td-rownumber {
+    background: #f5f5f5;
+    filter: none;
+}
+
+.datagrid .datagrid-body .datagrid-row i.fa-toggle-on {
+    color: #1ABC9C;
+    font-size: 13pt;
+    vertical-align: middle;
+    height: 15px;
+}
+
+.datagrid .datagrid-body .datagrid-row i.fa-toggle-off {
+    color: #aaa;
+    font-size: 13pt;
+    vertical-align: middle;
+    height: 15px;
+}
+/*datagrid表格中操作列的样式*/
+.datagrid .datagrid-body .datagrid-row .row-operation {
+    color: #09f;
+    text-decoration: none;
+}
+
+
+/******** treeGrid控件样式调整 **********/
+.datagrid-btable .tree-file {
+    background: url(default/img/file.png) center no-repeat;
+}
+
+.datagrid-btable .tree-folder {
+    background: url(default/img/folder.png) center no-repeat;
+}
+
+.datagrid-btable .tree-folder-open {
+    background: url(default/img/folder_open.png) center no-repeat;
+}
+
+
+
+/******gridlist控件的样式调整*******/
+.datalist .panel-header {
+    background: #f5f5f5;
+    filter: none;
+}
+
+
+
+/**button颜色定义内容， 目前不考虑使用**/
+.btn-orange, .btn-orange:hover {
+    background: #ffb86c;
+    border-color: #ffb86c;
+}
+
+.btn-red, .btn-red:hover {
+    background: #Ff756f;
+    border-color: #Ff756f;
+}
+
+.btn-light-purple, .btn-light-purple:hover {
+    background: #aa99ff;
+    border-color: #aa99ff;
+}
+
+.btn-blue, .btn-blue:hover {
+    background: #5AC4FF;
+    border-color: #5AC4FF;
+}
+
+.btn-light-black, .btn-light-black:hover {
+    background: #808080;
+    border-color: #808080;
+}

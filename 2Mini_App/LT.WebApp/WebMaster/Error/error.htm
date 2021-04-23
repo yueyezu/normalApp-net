@@ -1,0 +1,94 @@
+﻿<!-- 该页面为错误提示的界面，
+界面展示需要提供两个参数： msg：标题显示错误内容。detail：错误的详细信息。
+这里存在一定的缺陷，参数只能通过url来进行传递，存在一定的格式与长度的限制，
+后期考虑修改为请求或者其他传值的方式。 -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>访问的页面发生错误</title>
+    <style type=text/css>
+        table {
+            width: 600px;
+            font-size: 9pt;
+            color: #842b00;
+            line-height: 16pt;
+            font-family: "Tahoma", "宋体";
+            text-decoration: none;
+            padding-top: 5%;
+        }
+
+        a {
+            color: red;
+            text-decoration: none;
+        }
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+        #errorMsg {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <table cellspacing=0 align="center" border=0 cepadding="0">
+        <tr>
+            <td valign=top align=middle>
+                <img src="error.jpg" style="margin-top: 38px;margin-right: 20px; width: 100px;" />
+            </td>
+            <td>
+                <!--------System Return Begin------------>
+                <h1>系统错误</h1>
+                <span id="errorMsg">您访问的该页面存在错误</span>
+                <hr noshade=noshade size=0 />
+                <p>☉ 请尝试以下操作：</p>
+                <ul>
+                    <li>请确认浏览器中输入的网站地址是否正确。</li>
+                    <li>退出系统重新登录，然后在进行访问。</li>
+                    <li>
+                        请与网站管理员联系，通知他们该错误详细信息。
+                        <textarea id="errorDetail" readonly="readonly" style="resize: none; width: 400px; height: 100px;"></textarea>
+                        <a href="javascript:void(0);" onclick="errorDetail.select()">全选</a>
+                    </li>
+                    <li>
+                        单击<a href="javascript:history.back(1)">后退</a>按钮尝试另一个链接。
+                    </li>
+                </ul>
+                <hr noshade=noshade size=0 />
+                <p>☉ 如果您对本站有任何疑问、意见、建议、咨询，请联系管理员</p>
+                <!------------End this!--------------->
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+<script type="text/javascript">
+    window.onload = function () {
+        var msgPnl = document.getElementById("errorMsg");
+        var detailPnl = document.getElementById("errorDetail");
+        var params = requestParam();
+        if (params['msg']) {
+            msgPnl.innerHTML = params['msg'];
+        }
+        if (params['detail']) {
+            detailPnl.innerText = params['detail'];
+        }
+    }
+
+    function requestParam() {
+        //获取url中"?"符后的字串
+        var url = decodeURI(location.search);
+        var theRequest = new Object();
+        if (url.indexOf("?") !== -1) {
+            var str = url.substr(1);
+            var strs = str.split("&");
+            for (var i = 0; i < strs.length; i++) {
+                theRequest[strs[i].split("=")[0]] = strs[i].split("=")[1];
+            }
+        }
+        return theRequest;
+    }
+</script>

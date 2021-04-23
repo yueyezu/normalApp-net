@@ -1,0 +1,114 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>修改密码</title>
+    <!-- jquery -->
+    <script src="../Resources/js/jquery/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script src="../Resources/js/jquery/jquery.md5.js" type="text/javascript"></script>
+    <script src="../Resources/js/jquery/jquery.cookie.js" type="text/javascript"></script>
+    <!-- easyUI -->
+    <link href="../Resources/js/easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+    <link href="../Resources/js/easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+    <link href="../Resources/css/easyuiExt.css" rel="stylesheet" type="text/css" />
+    <script src="../Resources/js/easyui/jquery.easyui.min.js" type="text/javascript"></script>
+    <script src="../Resources/js/easyui/locale/easyui-lang-zh_CN.js" type="text/javascript"></script>
+    <!-- commonjs -->
+    <link href="../Resources/css/common.css" rel="stylesheet" type="text/css" />
+    <link href="../Resources/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <script src="../Resources/js/custom/common.js" type="text/javascript"></script>
+
+    <style type="text/css">
+        #changePwdForm {
+            margin: 10px auto;
+        }
+
+            #changePwdForm tr {
+                height: 40px;
+            }
+    </style>
+</head>
+<body class="easyui-layout">
+    <div data-options="region:'center'">
+        <form id="changePwdForm" class="formCls">
+            <table>
+                <tr>
+                    <th class="formTitle" style="width: 100px;">原&nbsp;密&nbsp;码：</th>
+                    <td class="formValue">
+                        <input id="oldPwd" type="password" class="easyui-validatebox" data-options="required:true" />
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle">新&nbsp;密&nbsp;码：</th>
+                    <td class="formValue">
+                        <input id="newPwd" type="password" class="easyui-validatebox" data-options="required:true" />
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle">确认密码：</th>
+                    <td class="formValue">
+                        <input id="confirmPwd" type="password" class="easyui-validatebox" data-options="required:true" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div data-options="region:'south'" class="formBtnsPanel">
+        <a id="btnSubmit" class="easyui-linkbutton" data-options="plain:true"><span class="fa fa-check"></span>提交</a>
+        <a id="btnCancel" class="easyui-linkbutton" data-options="plain:true"><span class="fa fa-remove"></span>取消</a>
+    </div>
+
+    <script type="text/javascript">
+        $(function () {
+            var winParam = requestParam();  //获取url传过来的值，必须有：wintype,winid字段
+            //提交按钮的操作
+            $('#btnSubmit').click(function () {
+                var isValid = $('#pwdForm').form('validate');
+                if (!isValid) {
+                    alertWarnning('录入数据有误，请检查');
+                    return;
+                }
+                var oldPwd = $('#oldPwd').val().trim();
+                var newPwd = $('#newPwd').val().trim();
+                var confirmPwd = $('#confirmPwd').val().trim();
+                if (oldPwd == newPwd) {
+                    alertError('新密码与原密码录入一致,请检查!');
+                    return;
+                }
+                if (newPwd !== confirmPwd) {
+                    alertError('两次输入密码不一致,请检查!');
+                    return;
+                }
+                $("#newPwd").attr('type', 'text');
+                $("#confirmPwd").attr('type', 'text');
+                doAjax({
+                    url: '../Ashx/SysManager/UserHandler.ashx',
+                    action: "ChangePassword",
+                    data: {
+                        'oldPwd': $.md5(oldPwd),
+                        'newPwd': $.md5(newPwd)
+                    },
+                    success: function (e) {
+                        doAjax({
+                            url: '../Ashx/Master.ashx',
+                            action: "Logout",
+                            success: function () {
+                                $("#newPwd").val('');
+                                $("#confirmPwd").val('');
+                                alertSuccess('密码修改成功,请重新登录系统！', function () {
+                                    top.open('WebMaster/Login/Login.aspx', "_self");
+                                });
+                            }
+                        });
+                    }
+                });
+            });
+
+            //取消按钮的操作
+            $('#btnCancel').click(function () {
+                closeWindow(winParam.winid);
+            });
+        });
+    </script>
+</body>
+</html>

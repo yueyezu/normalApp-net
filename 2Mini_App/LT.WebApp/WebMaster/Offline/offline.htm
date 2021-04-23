@@ -1,0 +1,77 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>强制下线提醒</title>
+    <style type="text/css">
+        .clearfix:after {
+            clear: both;
+            height: 0;
+            overflow: hidden;
+            display: block;
+            visibility: hidden;
+            content: ".";
+        }
+
+        .areaT {
+            width: 640px;
+            color: #999;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            margin: 60px auto 0;
+        }
+
+        .area {
+            width: 640px;
+            border: 1px solid #bbb;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+            .area .tips {
+                float: left;
+                margin-left: 25px;
+            }
+
+            .area h2 {
+                font-size: 20px;
+                border-bottom: 1px solid #DCDDDD;
+                padding: 20px 0 10px;
+                margin: 25px 35px 10px 190px;
+            }
+
+            .area h3 {
+                font-size: 18px;
+                margin: 0 35px 0 190px;
+            }
+    </style>
+</head>
+<body>
+    <!-- 导航 -->
+    <div class="areaT">强制下线提醒</div>
+    <div class="area clearfix">
+        <img src="redboy.png" width="160" height="160" class="tips" />
+        <h2>您的帐号在其他地方登录，请确认帐号安全。<br />重新登录系统！</h2>
+        <h3>
+            <span id="timeSpan" style="color: red;"></span>秒后返回<a href="../Login/Login.aspx">首页</a>
+        </h3>
+    </div>
+    <!-- area end -->
+</body>
+</html>
+<script type="text/javascript">
+    var all = 10;
+    var obj = document.getElementById("timeSpan");
+    function timeDesc() {
+        if (all <= 0) {
+            self.location = "../Login/Login.aspx";
+        } else {
+            obj.innerHTML = all;
+            all--;
+        }
+    }
+
+    window.onload = function () {
+        obj.innerHTML = all;
+        window.setInterval("timeDesc();", 1000);
+    }
+</script>

@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{50C7AD6C-5235-4227-B675-39239C5508EA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LT.Code</RootNamespace>
+    <AssemblyName>LT.Code</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\..\2Mini_App\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\..\2Mini_App\packages\log4net.2.0.8\lib\net35-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\2Mini_App\packages\Newtonsoft.Json.11.0.2\lib\net35\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Cache\Cache.cs" />
+    <Compile Include="Cache\CacheFactory.cs" />
+    <Compile Include="Cache\ICache.cs" />
+    <Compile Include="Compress\GZip.cs" />
+    <Compile Include="Compress\Rar.cs" />
+    <Compile Include="Compress\SharpZip.cs" />
+    <Compile Include="Configs\Configs.cs" />
+    <Compile Include="Extend\Ext.Bool.cs" />
+    <Compile Include="Extend\Ext.Other.cs" />
+    <Compile Include="Extend\Ext.DateTime.cs" />
+    <Compile Include="Extend\Ext.Number.cs" />
+    <Compile Include="Extend\Ext.String.cs" />
+    <Compile Include="Extend\ExtLinq.cs" />
+    <Compile Include="Files\FileDownHelper.cs" />
+    <Compile Include="Files\FileHelper.cs" />
+    <Compile Include="Configs\IniHelper.cs" />
+    <Compile Include="Files\PicHelper.cs" />
+    <Compile Include="Net\FTPHelper.cs" />
+    <Compile Include="Extend\HexHelper.cs" />
+    <Compile Include="Json\Json.cs" />
+    <Compile Include="Log\LogHelper.cs" />
+    <Compile Include="Log\Log.cs" />
+    <Compile Include="Log\LogFactory.cs" />
+    <Compile Include="Net\RequestHelper.cs" />
+    <Compile Include="Net\NetHelper.cs" />
+    <Compile Include="Net\MailHelper.cs" />
+    <Compile Include="Net\SoapHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\AESEncrypt.cs" />
+    <Compile Include="Security\Base64Encrypt.cs" />
+    <Compile Include="Security\BigInteger.cs" />
+    <Compile Include="Security\DESEncrypt.cs" />
+    <Compile Include="Security\MD5Encrypt.cs" />
+    <Compile Include="Security\RSAEncrypt.cs" />
+    <Compile Include="Security\RSAEncryptExt.cs" />
+    <Compile Include="Serialize.cs" />
+    <Compile Include="SystemHelper.cs" />
+    <Compile Include="Utility.cs" />
+    <Compile Include="Validate\Validate.cs" />
+    <Compile Include="Validate\VerifyCode.cs" />
+    <Compile Include="Web\TreeGrid\TreeGrid.cs" />
+    <Compile Include="Web\TreeGrid\TreeGridModel.cs" />
+    <Compile Include="Web\TreeQuery.cs" />
+    <Compile Include="Web\TreeView\TreeView.cs" />
+    <Compile Include="Web\TreeView\TreeViewModel.cs" />
+    <Compile Include="Web\Tree\TreeSelect.cs" />
+    <Compile Include="Web\Tree\TreeSelectModel.cs" />
+    <Compile Include="Web\WebHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

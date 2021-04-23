@@ -1,0 +1,37 @@
+﻿<%-- 预留的母板页，这里暂时先不使用。
+    母版页的作用主要是控制界面中js引入及样式的引入。简化子界面的代码量。但是带有母板渲染上会慢一点。
+    这里对于js以及样式的引入，考虑到界面可能采用到html界面的形式，通过requiredjs来进行了处理。这里只做预留。不使用。
+    后续如果不使用requirejs进行引入时，可以考虑切换成母板页的形式。但是使用母板的话，界面必须要做aspx类型的了。
+--%>
+
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Index.master.cs" Inherits="LT.WebApp.WebMaster.Master.Index" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <%-- jquery --%>
+    <script src="../../Resources/js/jquery/jquery-1.11.3.min.js" type="text/javascript"></script>
+
+    <%-- easyUI --%>
+    <link href="../../Resources/js/easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+    <link href="../../Resources/js/easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+    <script src="../../Resources/js/easyui/jquery.easyui.min.js" type="text/javascript"></script>
+    <script src="../../Resources/js/easyui/locale/easyui-lang-zh_CN.js" type="text/javascript"></script>
+
+    <%-- commonjs --%>
+    <script src="../../Resources/js/custom/common.js" type="text/javascript"></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <title></title>
+</head>
+<body>
+    <asp:ContentPlaceHolder ID="body" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <asp:ContentPlaceHolder runat="server" ID="script">
+    </asp:ContentPlaceHolder>
+</body>
+</html>
